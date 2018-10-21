@@ -10,11 +10,23 @@ require 'pry'
 # location: project.css("ul.project-meta span.location-name").text
 # percent_funded: project.css("ul.project-stats li.first.funded strong").text.gsub("%","").to_i
 
+## plus something else that im supposed to find but cant because im not connected
+# to their web page
+
 # TO find the CSS selector.... We click around a bit in the Chrome web inspector, take a stab at a CSS selector in Pry, and then keep track of that selector in our project file. 
 
 def create_project_hash
   html = File.read('fixtures/kickstarter.html')
  
   kickstarter = Nokogiri::HTML(html)
+  
+  projects = {}
+
+
+
 
 end
+
+
+
+
