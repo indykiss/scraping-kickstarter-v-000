@@ -16,19 +16,15 @@ require 'pry'
 # TO find the CSS selector.... We click around a bit in the Chrome web inspector, take a stab at a CSS selector in Pry, and then keep track of that selector in our project file. 
 
 def create_project_hash
-  html = File.read('fixtures/kickstarter.html')
- 
-  kickstarter = Nokogiri::HTML(html)
-  
   projects = {}
-
+ 
   kickstarter.css("li.project.grid_4").each do |project|
-    projects[project] = {}
+    title = project.css("h2.bbcard_name strong a").text
+    projects[title.to_sym] = {}
   end
-   projects
-end
-
-
+ 
+  # return the projects hash
+  projects
 end
 
 
